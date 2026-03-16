@@ -38,11 +38,23 @@ int main()
 
 int accept_money()
 {
-  //write your code
+  int total, amount;
+  
+  do
+  {
+    cout << "Insert a coin (dollar = 100, quarter = 25, dime = 10, nickel = 5): ";
+    cin >> amount;
+
+    total += amount;
+    
+    cout << "Total so far is: " << total/100.0 << endl << endl;
+  } while(total < TWINKIE_PRICE);
+
+  return total;
 }
 
 int compute_change(int total_paid) 
 {
-//write your code
+  return total_paid - TWINKIE_PRICE;
 }
 
