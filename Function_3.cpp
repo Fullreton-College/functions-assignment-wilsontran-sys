@@ -1,12 +1,13 @@
 #include <iostream>
-using namspace std;
+
+using namespace std;
 
 void input( int& hours24, int& minutes);
 void output( int hours, int minutes);
 
 int main()
 {
-    int timeHours, timeMinutes, waitHours, waitMinutes,finishHours, finishMinutes;
+  int timeHours, timeMinutes, waitHours, waitMinutes,finishHours, finishMinutes;
 
   cout << "Compute completion time from current time and waiting period\n";
   
@@ -14,10 +15,10 @@ int main()
   char ans = 'y'; 
   while ('y' == ans || 'Y' == ans)
   {
-    cout << "Current time:\n";
+    cout << "\nCurrent time:\n";
     input(timeHours, timeMinutes);
 
-    cout << "Waiting time:\n";
+    cout << "\nWaiting time:\n";
     input(waitHours, waitMinutes);
 
     
@@ -27,20 +28,33 @@ int main()
     
     finishHours += finishMinutes / 60;
     if(finishHours >= 24)
-	{
-	  finishHours %= 24;
-	  cout << "Completion time is in the day following the start time\n";
+	  {
+	    finishHours %= 24;
+	    cout << "\nCompletion time is in the day following the start time\n";
     }
 
     finishMinutes%= 60;
 
-    cout << "Completion ";
+    cout << "\nCompletion ";
     output(finishHours, finishMinutes);
 
-	cout << "\n\nEnter Y or y to continue, any other halts\n\n";
-	cin >> ans;
+	  cout << "\n\nEnter Y or y to continue, any other halts\n\n";
+	  cin >> ans;
   }
 
   return 0;
+}
+
+void input(int& hours24, int& minutes)
+{
+  char colon;
+
+  cout << "Enter the time in 24-hour format (HH:MM): ";
+  cin >> hours24 >> colon >> minutes;
+}
+
+void output(int hours, int minutes)
+{
+  cout << hours << ":" << minutes;
 }
 
